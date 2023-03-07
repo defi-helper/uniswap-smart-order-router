@@ -1,4 +1,5 @@
 import Express from "express";
+import cors from "cors";
 import cla from "command-line-args";
 import {
   AlphaRouter,
@@ -33,6 +34,7 @@ function isURL(v: string) {
 
 const cache = new Cache();
 Express()
+  .use(cors())
   .get("/:network", async (req, res) => {
     const network = Number(req.params.network);
     if (!isNetwork(network)) {

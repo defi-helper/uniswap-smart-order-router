@@ -7,8 +7,8 @@ ENV NODE_ENV ${NODE_ENV:-production}
 
 COPY package*.json ./
 RUN npm ci
-RUN npm build
 COPY . .
+RUN npm build
 
 FROM node:16-alpine
 WORKDIR /app

@@ -1,0 +1,69 @@
+# Default values for uniswap-smart-order-router
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+images:
+  nginx:
+    name: nginx
+    resources:
+      requests:
+        memory: 64Mi
+        cpu: 10m
+      limits:
+        memory: 64Mi
+        cpu: 100m
+  app:
+    name: app
+    resources:
+      requests:
+        memory: 64Mi
+        cpu: 10m
+      limits:
+        memory: 64Mi
+        cpu: 100m
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: "nginx-ingress"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+  hosts:
+    - host: uniswap-smart-order-router.defihelper.info
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: uniswap-smart-order-router-tls
+      hosts:
+        - uniswap-smart-order-router-dev.defihelper.info
+
+resources: {}
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+nodeSelector:
+  group_name: "service"
+tolerations:
+  - key: node-role.kubernetes.io/service
+    operator: "Equal"
+    value: "true"
+    effect: NoSchedule
+affinity: {}
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}

@@ -15,7 +15,7 @@ import { Protocol } from "@uniswap/router-sdk";
 import { Cache } from "./cache";
 
 const { port } = cla([
-  { name: "port", alias: "p", type: Number, defaultValue: 80 },
+  { name: "port", alias: "p", type: Number, defaultValue: 8080 },
 ]);
 const networks = Object.keys(config.node).map((network) => Number(network));
 function isNetwork(

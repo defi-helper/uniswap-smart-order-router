@@ -7,6 +7,7 @@ ENV NODE_ENV ${NODE_ENV:-production}
 
 COPY package*.json ./
 RUN npm ci
+RUN npm build
 COPY . .
 
 FROM node:16-alpine

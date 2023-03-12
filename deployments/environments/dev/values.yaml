@@ -39,7 +39,7 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls:
-    - secretName: uniswap-smart-order-router-tls
+    - secretName: uniswap-router-tls
       hosts:
         - uniswap-smart-order-router-dev.defihelper.info
 

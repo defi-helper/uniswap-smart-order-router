@@ -35,6 +35,7 @@ function isURL(v: string) {
 const cache = new Cache();
 Express()
   .use(cors())
+  .get("/", (_, res) => res.send("ok"))
   .get("/:network", async (req, res) => {
     const network = Number(req.params.network);
     if (!isNetwork(network)) {

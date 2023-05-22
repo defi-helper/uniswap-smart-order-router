@@ -41,7 +41,7 @@ ingress:
   tls:
     - secretName: uniswap-router-tls
       hosts:
-        - uniswap-smart-order-router-dev.defihelper.info
+        - uniswap-smart-order-router.defihelper.info
 
 resources: {}
 autoscaling:

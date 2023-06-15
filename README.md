@@ -7,6 +7,7 @@ NODE_GOERLI="https://..."
 NODE_BSC="https://..."
 NODE_POLYGON="https://..."
 NODE_OPTIMISTIC="https://..."
+NODE_ARBITRUM="https://..."
 CACHE_TTL=360
 ```
 

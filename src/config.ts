@@ -8,6 +8,7 @@ export default {
     10: process.env.NODE_OPTIMISTIC,
     56: process.env.NODE_BSC,
     137: process.env.NODE_POLYGON,
+    42161: process.env.NODE_ARBITRUM,
   },
   cache: {
     ttl: Number(process.env.CACHE_TTL ?? "6"),
